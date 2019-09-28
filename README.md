@@ -1,5 +1,5 @@
-## Student Sample
+## Sam Repo
 
-Empty template for student github repository for storing and sharing weekly projects and reading reflections. 
+Repository for storing and sharing weekly projects and reading reflections in MAT594X. 
 
-This is the README document. Use it to describe a little about yourself!
+I am beginning my phD in the MAT program this Fall 2019. I am from Montreal and come from a background in engineering and art. [Here!](http://sambourgault.com) is my online portfolio if you are interested.
