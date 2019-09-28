@@ -11,7 +11,6 @@
 size (800, 800);
 
 background(0);
-rectMode(CENTER);
 
 stroke(255);
 noFill();
@@ -23,20 +22,39 @@ ellipse(width/2 - 140, height/2 - 260, 100, 100);
 ellipse(width/2 + 210, height/2 - 200, 100, 100);
 ellipse(width/2 - 210, height/2 - 200, 100, 100);*/
 
-ellipse(width/2 , height/2 - 55, 600, 600);
+/*ellipse(width/2 , height/2 - 55, 600, 600);
 ellipse(width/2 + 8 , height/2 - 52, 604, 603);
-ellipse(width/2 - 2 , height/2 - 56, 610, 608);
+ellipse(width/2 - 2 , height/2 - 56, 610, 608);*/
 
 //ellipse(width/2 - 100 , height/2 + 200, 120, 120);
+fill(255);
+noStroke();
+rect(width/2,0,1,height);
+rect(width/2 - 100 ,0,1,height);
+rect(width/2 - 200 ,0,1,height);
+rect(width/2 - 300 ,0,1,height);
+rect(width/2 - 400 ,0,1,height);
+rect(width/2 + 100 ,0,1,height);
 
 
+
+rectMode(CENTER);
+
+stroke(255);
 fill(255);
 //ellipse(width/2 + 100, height/2 - 130, 450, 450);
-ellipse(width/2, height/2 - 55, 500, 500);
+//ellipse(width/2, height/2 - 55, 500, 500);
+
+//noFill();
+line(width/2-100, height/2 + 100, width/2-270, height/2 + 70);
+line(width/2-270, height/2 + 70, width/2-245, height/2 + 10);
+//triangle(width/2-100, height/2 + 100, width/2-250, height/2 + 50, width/2-245, height/2 + 10 );
 
 //face
 fill(0);
 ellipse(width/2, height/2, 400, 400);
+fill(0, 0);
+ellipse(width/2 - 2, height/2, 400, 420);
 
 noFill();
 // forehead
