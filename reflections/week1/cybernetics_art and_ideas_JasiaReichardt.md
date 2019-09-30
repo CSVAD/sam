@@ -1,5 +1,28 @@
 ## Reflection on Cybernetics, art and ideas: Introduction by Jasia Reichardt
 
-Write **one to two paragraphs** about your reactions and thoughts to the weekly reading. In what ways did you agree or dissagree with the points raised by the author? What associations did it raise for you? How did it align with or diverge from your personal experience? Feel free to include [links](http://formandcode.com/) to other relevant readings, videos, or works in your reflection.
+### On preconception
+electronic engineers == clever but uncreative.
+artists == creative but no technical skills.
 
-The reflections can be written in Markdown. Here's some tips on how to get started: [Mastering Markdown](https://guides.github.com/features/mastering-markdown).
+mostly true according to the author. Says that today assumption s are less accurate (because of computer-aided creative design)
+
+interesting how Cybernetic Serendipity is described, not an exhibition nor a technological fun fair. A hybrid perhaps?
+
+The controversial questions: wheter a computer thinks or wether it will replace man. Young audience would not think about that.
+
+"The stronghold of art and technology is discouraged"...
+
+2 texts in parallel:
+Intellect has its own pleasure. but these are not a substitute for a direct emotional response.
+
+To this day, not a single master piece made to the principles of generative aesthetics. ** Casey Reas
+
+computer arts for those who are concerned with:
+- pemutational procedures
+- serial techniques
+- transformation of images
+
+Instrument of democracy?
+Abraham MOles dismisses the authenticity of a work of art ..
+
+foreigners, computers and poets = unexpected linguistic associations
