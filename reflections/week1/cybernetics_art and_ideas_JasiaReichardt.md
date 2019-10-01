@@ -1,4 +1,4 @@
-## Reflection on Cybernetics, art and ideas: Introduction by Jasia Reichardt
+## Reflection on Cybernetics, art and ideas: Introduction by Jasia Reichardt (1971)
 
 
 ### Response
