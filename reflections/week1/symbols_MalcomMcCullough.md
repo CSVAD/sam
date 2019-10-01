@@ -2,9 +2,11 @@
 
 ### Response
 
-Malcom McCullough's exploration on symbols marries gracefully the notions of craft and digital aesthetic. Coming out of this reading felt like the act of massaging data through software could result in a hybrid sculptural form both physical and virtual. Like a play dough consisting of 0s and 1s. Thinking of digital craft as a "reflective consciousness" applied on "the practice of habitual computer-based work" is particularly compelling.
+Malcom McCullough's exploration on symbols marries gracefully the notions of craft and digital aesthetic. Coming out of this reading felt like the act of massaging data through software could result in a hybrid sculptural form both physical and virtual. Like a play dough consisting of 0s and 1s. Thinking of digital craft as a "reflective consciousness" applied on "the practice of habitual computer-based work" is particularly compelling. This definitely opens up new ways to understand this creative fields, as a medium comparable to other medium, to painting and sculpture.
 
-...TBC
+Since programming is a language, it makes sense to treat it with analytical tools. McCullough gives us a scheme to think, interpret, and analyze computational art, a symbolic scheme. But he acknowledges himself the limits of that scheme: the lack of consciousness, of intent, in approaching digital craft solely through a formal notation. This space that differs from conventional programming is were art resides. 
+
+Still today, digital art, somehow, is not well understood. People that are not directly connected to the field still think that it only consists of video game making or website design. Computation as a medium has not yet reached global consciousness. Maybe it's just a matter of understanding generative structure as a material? Next time someone asks me what do I do, I'll reply that, like a painter with paint or a sculptor with clay, I manipulate data.   
 
 
 ### Personal Notes
