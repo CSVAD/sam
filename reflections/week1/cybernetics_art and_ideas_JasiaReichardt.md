@@ -23,6 +23,15 @@ computer arts for those who are concerned with:
 - transformation of images
 
 Instrument of democracy?
-Abraham MOles dismisses the authenticity of a work of art ..
+Abraham Moles dismisses the authenticity of a work of art ..
 
 foreigners, computers and poets = unexpected linguistic associations
+
+
+## Response
+
+Reichardt's first statement is very compelling to me.
+
+> One thing that foreigners, computers and poets have in common is that they make unexpected linguistic associations.
+
+As a foreigner, I often found that unintended feature shameful. 
