@@ -1,8 +1,10 @@
 PImage stain;
+PImage foreground;
 
 void setup() {
   size(800, 800);
   background(0);
+  foreground = createImage(width, height, ARGB);;
 
   stain = loadImage("stain.png");
 
@@ -42,6 +44,9 @@ void setup() {
 
   fill(200);
   drawSeed2(200, 100, 40, 100, 100, 400 );
+
+  // test adding some fog
+  //makeBackground();
 
   /*rotate(radians(20));
    fill(255);
@@ -107,12 +112,13 @@ void drawSeed3(float x, float y, float h, float w, float spaceX, float spaceY, f
 }
 
 void makeBackground() {
-  loadPixels();
+  foreground.loadPixels();
   for (int i = 0; i < width; i++) {
     for (int j = 0; j < height; j++) {
       float distance = abs(dist(0,0, i,j));
-      pixels[i + width*j] = color(map(distance, 0,dist(0,0, width,height), 0, 255 ));
+      foreground.pixels[i + width*j] = color(map(distance, 0,log(dist(0,0, width,height)*2)/log(1.005), 0, 255 ), 100);
     }
   }
-  updatePixels();
+  foreground.updatePixels();
+  image(foreground, 0,0);
 }
