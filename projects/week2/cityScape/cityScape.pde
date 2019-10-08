@@ -1,9 +1,13 @@
+PImage stain;
+
 void setup() {
-  size(800, 800);
+  size(1600, 1600);
   background(0);
 
-fill(255,0,0);
-  drawSeed3(450, 600, 5, 20, 80, 20, 0 );
+  stain = loadImage("stain.png");
+
+  fill(255, 0, 0);
+  drawSeed3(450, 650, 5, 20, 60, 20, 0 );
 
   fill(220);
 
@@ -38,11 +42,11 @@ fill(255,0,0);
 
   fill(200);
   drawSeed2(200, 100, 40, 100, 100, 400 );
-  
+
   /*rotate(radians(20));
-  fill(255);
-  textSize(350);
-  text("REGULAR", 200,200);*/
+   fill(255);
+   textSize(350);
+   text("REGULAR", 200,200);*/
 }
 
 
