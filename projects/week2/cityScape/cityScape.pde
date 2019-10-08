@@ -1,7 +1,7 @@
 PImage stain;
 
 void setup() {
-  size(1600, 1600);
+  size(800, 800);
   background(0);
 
   stain = loadImage("stain.png");
@@ -104,4 +104,15 @@ void drawSeed3(float x, float y, float h, float w, float spaceX, float spaceY, f
   if (y < height) {
     drawSeed3(x, y + spaceY, h, w, spaceX, spaceY, rot);
   }
+}
+
+void makeBackground() {
+  loadPixels();
+  for (int i = 0; i < width; i++) {
+    for (int j = 0; j < height; j++) {
+      float distance = abs(dist(0,0, i,j));
+      pixels[i + width*j] = color(map(distance, 0,dist(0,0, width,height), 0, 255 ));
+    }
+  }
+  updatePixels();
 }
