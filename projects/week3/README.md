@@ -1,0 +1,3 @@
+## parametrization
+
+going from mechanical object, to mathematical curves, to snakes, to intestinal tracks, to the drawing machine, to the spaghetti plate, to the vase maker...
