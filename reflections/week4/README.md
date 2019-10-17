@@ -7,14 +7,14 @@ Another relevant aspect of this article is the idea of programming errors and em
 ## Reflection on _PLAYING A GAME OF GANSTRUCTION_ by Helena Sarin. (2019)
 Helena Sarin is a beautiful example of an artist who does not stop where everyone else has. Her philosophy to use technology to see things differently is remarkable in all her work. I have seen so many people using GANs as it is without understanding or thinking about the actual implications of such technology. But with Sarin it's different, it's deeply poetic.
 
-She describes herself as a curator, a collector and a gardener: three occupations that require a lot of observation, patience, and attention. It tells a lot about the ways she engages with her work and how she doesn't take technology for granted. Art involving machine learning needs humans! 
+She describes herself as a curator, a collector and a gardener: three occupations that require a lot of observation, patience, and attention. It tells a lot about the ways she engages with her work and how she doesn't take technology for granted. Art involving machine learning needs humans!
 
 
 ## Reflection on _The new role of the designer in generative design_ by Che-Wei Wang (CW&T). (2018)
-When Che-Wei Wang talks about the importance of adding human in the loop of technological processes such as machine learning relates to the reason why I find Helena Sarin so inspiring. I believe that artists and designers but also people, in general, have to understand what is happening "inside the box". As mentioned by Wang, to protect our societies against bias and corruption but less dramatically to understand the complex world we live in and its potential.   
+Che-Wei Wang talking about the importance of adding humans in the loop of technological processes such as machine learning relates to the reason why I find Helena Sarin so inspiring. He believes that artists and designers but also people, in general, have to understand what is happening "inside the box". As mentioned by Wang, this is mandatory in order to protect our societies against bias and corruption and, less dramatically, to understand the complex world we live in and its potential.   
 
 ## Reflection on __ by Memo Akten. (2018)
-Memo Akten makes another argument that supports the graph introduced by Helena Sarin: "as you get towards the end of the spectrum, you’ll need to work harder to give it a unique spin and make it your own." The end of the spectrum being the one that requires less effort in order to use machine learning.
+Memo Akten makes another argument that supports the graph introduced by Helena Sarin: "as you get towards the end of the spectrum, you’ll need to work harder to give it a unique spin and make it your own." The end of the spectrum being the one that requires less effort in order to use machine learning. Therefore being innovative in this field is either diving into the subject and understanding how it works or having a REALLY good idea about something superficial. I tend to agree with that.
 
 His work developing new means of creativity for individuals to explore is also very compelling. Akten is another example whose deep comprehension of the subject matter, here machine learning, allows us to make things that shows the world of technology with new perspectives.
 
