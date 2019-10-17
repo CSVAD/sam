@@ -13,7 +13,7 @@ She describes herself as a curator, a collector and a gardener: three occupation
 ## Reflection on _The new role of the designer in generative design_ by Che-Wei Wang (CW&T). (2018)
 Che-Wei Wang talking about the importance of adding humans in the loop of technological processes such as machine learning relates to the reason why I find Helena Sarin so inspiring. He believes that artists and designers but also people, in general, have to understand what is happening "inside the box". As mentioned by Wang, this is mandatory in order to protect our societies against bias and corruption and, less dramatically, to understand the complex world we live in and its potential.   
 
-## Reflection on __ by Memo Akten. (2018)
+## Reflection on _Machine Learning Art: An Interview With Memo Akten_. (2018)
 Memo Akten makes another argument that supports the graph introduced by Helena Sarin: "as you get towards the end of the spectrum, you’ll need to work harder to give it a unique spin and make it your own." The end of the spectrum being the one that requires less effort in order to use machine learning. Therefore being innovative in this field is either diving into the subject and understanding how it works or having a REALLY good idea about something superficial. I tend to agree with that.
 
 His work developing new means of creativity for individuals to explore is also very compelling. Akten is another example whose deep comprehension of the subject matter, here machine learning, allows us to make things that shows the world of technology with new perspectives.
