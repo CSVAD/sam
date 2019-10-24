@@ -4,7 +4,7 @@ I find myself reacting a lot to Bret Victor's presentation: both agreeing and di
 
 Bret Victor also mentions that code is not a truly artistic way to create behaviors. I disagree on the basis that creativity comes from more than one place. Fair enough, if he prefers body movements as a source of expression, but some other minds favor mathematical equations, logic gates, and words.
 
-Besides some elitist comments, the idea of performing the computer medium is one close to me as well. I have started questioning video games as a mean for performance so I am very intrigued by Victor's software.
+Besides some elitist comments, the idea of performing the computer medium is one close to my artistic practice. I have begun questioning video games as a mean for performance so I am very intrigued by Victor's software. I feel that interactive art as still to be explored. Through platforms such as Twitch, video games have become much more than solitary entertainment.
 
 I feel that dead fish are still relevant.
 
