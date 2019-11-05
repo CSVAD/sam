@@ -11,6 +11,8 @@ Capture video;
 Brush brush;
 float speed = 0.5;
 int bit = 32;
+
+//foreground if applicable
 boolean newForeground = true;
 int endI = 0;
 int endJ = 0;
