@@ -4,12 +4,12 @@ Write a short proposal for your final project based on one of the options. You m
 
 
 ### IDEA 1: LiveSoundDrawing Library
-_LiveSoundDrawing Library_ would be the continuation of my LiveDrawing Library made for week 7. This framework would facilitate artistss that want to draw and make sound for live audio/visual performance. (I'm already excited to perform with my own tool. (Design for designer, Construction Kits for Kids)). In addition to the basic examples distributed with the library, I would also make a more complex ready-to-perform interface. This project would therefore combine the prompts 1 and 3 suggested by Jennifer.
+_LiveSoundDrawing Library_ would be the continuation of my LiveDrawing Library made for week 7. This framework would facilitate artists that want to draw and make sounds for live audio/visual performance. (I'm already excited to perform with my own tool. (Invent Things That You Would Want to Use Yourself, Construction Kits for Kids)). In addition to the basic examples distributed with the library, I would also make a more complex ready-to-perform interface. This project would, therefore, combine the prompts 1 and 3 suggested by Jennifer.
 
 Steps:
-1. Increase the drawing flexibility of the current _LiveDrawing Library_: adding control on color, stroke weight, multilines possibilities.
+1. Increase the drawing flexibility of the current _LiveDrawing Library_: adding control on color, stroke weight, multiline possibilities.
 2. Adding animation capabilities.
-3. Adding sound mapping to the drawings: stroke weight to resonant filter, multiline to polyphony, color to pitch. (still need to be precised)
+3. Adding sound mapping to the drawings: stroke weight to resonant filter, multiline to polyphony, color to pitch. (still need to be determined)
 4. (optional) Design a very simple/intuitive UI to increase the possibilities (for my personal interface only).
 5. (optional) Adding quadraphonic features.
 
@@ -20,10 +20,10 @@ I would like to make a Processing (or P5.js) interface of a design tool that wou
 
 Steps:
 1. Making a few simple components first
-2. Setting up a GUI that allows to drag and drop (or maybe an other interaction technique) components in a grid layout (that allows for snapping components together)
+2. Setting up a GUI that allows to drag and drop (or maybe another interaction technique) components in a grid layout (that allows for snapping components together)
 3. Integrating mechanical physics principle: gravity, speed, force, force moment to make the interaction between components as realistic as possible.
 4. Adding communication to a microcontroller in order to physically control the controllable components of a kinetic project that would be based on a design made within the tool.
 
-This project idea comes from the fact that having a simple framework to design my kinetic work would be very helpful. Of course, one could use CAD or Autodesk, but the idea here is to create something easy to prototype with. [.....]
+This project idea comes from the fact that having a simple framework to design my kinetic work would be very helpful. Of course, one could use AutoCAD or SOLIDWORKS, but the goal here is to create something easy to prototype with such as a Processing sketch. This could be the first version of a more complex software that I would like to develop in the future, maybe as part of my Ph.D. research.
 
-This project builds on this, this and this. [......]
+This project builds on projects such as [Volume](https://softlabnyc.com/portfolio/volume/) by SOFTlab, which involves a processing interface to monitor and control the states of a mirrors and lights installation.
