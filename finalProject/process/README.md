@@ -9,11 +9,11 @@ Design metaphore;
 What could be sonified:
 - ADSR
 - additive synthesis
-⋅⋅-  with varying amount of partial depending of the weight stroke?
+    - with varying amount of partial depending of the weight stroke?
 - wavetable stacking technic: "When four to eight complex waveforms can be staked, deep and rich hybrid tectures can be created for each sound event." (Roads, 1996)
 - how to embrace reverb?
 - granular synthesis
-⋅⋅- the envelope of the grain modifies its sonic qualities (Roads, 1996).
+    - the envelope of the grain modifies its sonic qualities (Roads, 1996).
 
 * Reading Curtis Roads: The Computer Music Tutorial
 
