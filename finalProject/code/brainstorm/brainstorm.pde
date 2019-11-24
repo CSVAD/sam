@@ -1,9 +1,9 @@
 /**
-** 
-** Date: Nov 23, 2019
-** Description: Starting from the example of week5, the drawing tool.
-**
-**/
+ ** 
+ ** Date: Nov 23, 2019
+ ** Description: Starting from the example of week5, the drawing tool.
+ **
+ **/
 
 import ddf.minim.*;
 import ddf.minim.analysis.*;
@@ -13,12 +13,14 @@ import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
 import drawing.library.*;
-import processing.pdf.*;
+//import processing.pdf.*;
 
-DrawingManager drawingManager;
-Line shape;
-Line shape2;
-ArrayList<Line> shapes = new ArrayList<Line>();
+Minim minim;
+AudioOutput out;
+
+ULine shape;
+ULine shape2;
+ArrayList<ULine> shapes = new ArrayList<ULine>();
 
 boolean animate = false;
 boolean rotate = false;
@@ -34,13 +36,37 @@ void setup() {
   fullScreen(P3D);
   //size(800, 800, P3D);
   background(255);
+  
+  // minim objects
+  minim = new Minim(this);
+  out = minim.getLineOut();
+  
   smooth();
-  drawingManager = new DrawingManager(this);
   perspective(PI/3.0, float(width)/float(height), 10, 10000);
 }
 
 void draw() {
   background(50);
+  stroke(255);
+  strokeWeight(2);
+  line(width/2, 100, 0, width/2, 1000, 0);
+
+  pushMatrix();
+  translate(width/2, height/2);
+  rectMode(CENTER);
+  rotateY(rotateY);
+  noFill();
+  //translate(width/2, height/2, 0);
+  //rotateX(radians(85));
+  //ellipse(0,0, 1500, 1500);
+  fill(255, 50);
+  rect(0, 0, width, 5);
+  rotateY(radians(45));
+  rect(0, 0, width, 5);
+  rotateY(radians(45));
+  rect(0, 0, width, 5);
+  popMatrix();
+
   pushMatrix();
   translate(width/2, height/2);
   rotateX(rotateXZ);
@@ -52,7 +78,7 @@ void draw() {
     for (int i = 0; i < shapes.size(); i++) {
       shapes.get(i).display();
     }
-    println(shapes.size());
+    //println(shapes.size());
     //shape.addDelta(0,0);
     //shape.renderTransformation(this);
   }
@@ -67,10 +93,10 @@ void draw() {
 
 void keyPressed() {
   if (key == ' ') {
-    drawingManager.savePDF();
+   // drawingManager.savePDF();
   }
   if (key == 'c') {
-    drawingManager.clear();
+   // drawingManager.clear();
     shapes.clear();
   }
   if (key == '1') {
@@ -106,7 +132,7 @@ void keyPressed() {
 
 void mousePressed() {
   //shape = drawingManager.addShape(); 
-  shape = new Line();
+  shape = new ULine();
   shapes.add(shape);
 }
 
@@ -117,4 +143,8 @@ void mouseDragged() {
   //float distance = dist();
   shape.addVertex(new PVector((mouseX -width/2)*cos(rotateY), mouseY - height/2, (mouseX -width/2)*sin(rotateY)));
   popMatrix();
+}
+
+void mouseReleased(){
+  //shape.play(2.0);
 }
