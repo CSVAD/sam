@@ -1,3 +1,13 @@
+
+## final project proposal: updated
+
+
+
+
+
+
+
+
 ## final project proposal
 
 Write a short proposal for your final project based on one of the options. You may propose one idea, or several different possibilities. Projects may be collaborative. If you plan to work with other members of the class, describe how you plan to organize the work across the members of the team members.

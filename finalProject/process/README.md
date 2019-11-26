@@ -1,5 +1,11 @@
 ## process journal
 
+### Nov 24, 2019
+Other questions:
+- how to applied filters? specific tools to specific filter? e.g.: blur tool, sharpen tool?
+- lines are playback instruments that carry a sample and modify that playback depending on its physiognomy. search for equilibrium.
+
+
 ### Nov 23, 2019
 Exploring minim on Processing.
 - I attached a sine oscillator from the minim library to the line unit from my previous sketch. The duration of the note is directly proportional to the length of the line.
@@ -49,7 +55,7 @@ Taking a pen and paper to prototype.
 ### Nov 21, 2019
 I just finished reading Golan Levin [thesis]{https://acg.media.mit.edu/people/golan/thesis/thesis300.pdf}. His thesis follows his thorough process of design, from inspiration to creation. He is critical about previous work and about his own, which gives me a lot of insights regarding directions to take or not to take. More on this later.
 
-**Questions emerged form the reading:**
+**Questions emerged from the reading:**
 - Where/what is the reader? A movable rectangle like in [_Yellowtail_]{http://www.flong.com/projects/yellowtail/} or an abstracted timeline based on the line's length like in _Loom_ (Levin, c. 1999)? Or something else?
 - How can I use 3 dimensions sonically?
 - How could I develop grouping behaviors between the lines in order to develop a choir like system?
