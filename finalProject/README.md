@@ -8,13 +8,13 @@ After receiving feedback from Jennifer and the class, I decided that I will inve
 I believe that, in the amount of time left to execute this project, exploring different strategies to connect sounds and visuals and reporting back on them is a good starting point. My thought process will be compiled into a [journal](https://github.com/CSVAD/sam/tree/master/finalProject/process) that I will update on a daily basis.
 
 **Technical challenges**
-I decided to use Max/MSP as my prototyping software for sound, therefore, I will need to enable communication between my patch and Processing. This adds a layer of complexity to the whole system and latency might be an issue. I find Max/MSP easier to use and my few experiments with minim and sound for Processing have consisted mainly to get rid of aliasing unsuccessfully.
+I decided to use Max/MSP as my prototyping software for sound, therefore, I will need to enable communication between my patch and Processing. This adds a layer of complexity to the whole system and latency might be an issue. I find Max/MSP easier to use and my few experiments with minim and sound for Processing have consisted mainly to get rid of aliasing unsuccessfully. Allocating a different instrument to every lines using Max/MSP will be another challenge.
 
 **Design challenges**
 Coming up with compelling metaphors for the lines in terms of sonic affordances is definitely challenging. I have started brainstorming and prototyping. A first idea is to think of the sketch as an instrument that needs maintenance, if you stop drawing sound slowly vanishes through different phenomena. We will see of this evolves! So far, I have been going back and forth from the drawing sketch to the sound patch in order to build my examples. It believe that this strategy is efficient to tackle this challenge.
 
 
-**Evalutation**
+**Evaluation**
 As for the evaluation, I hope to have a first prototype that can be performed live using a graphic tablet that by the end of the quarter. I also wish that the drawn lines and the generated sound to feel well integrated, part of a whole. If these two components are achieved I will consider this first stage a success.
 
 

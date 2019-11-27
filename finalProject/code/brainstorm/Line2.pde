@@ -1,4 +1,4 @@
-class ULine1 extends ULine {
+class ULine2 extends ULine {
   ArrayList<PVector> vertices = new ArrayList<PVector>();
   int verticesNb = 0;
   int animationIndex = 0;
@@ -8,15 +8,25 @@ class ULine1 extends ULine {
   boolean modeLine = false;
   // for Instrument
   Oscil wave;
-  Line  ampEnv;
+  Noise noise;
+  
+  /*maxAmp — float: the maximum amplitude for the envelope
+   attTime — float: the attack time, in seconds
+   decTime — float: the decay time, in seconds
+   susLvl — float: the percentage of the maximum amplitude to maintain after the decay completes
+   relTime — float: the release time, in seconds
+   befAmp — float: the amplitude to apply before the envelope is activated
+   aftAmp — float: the amplitude to apply once the envelope has completed*/
+  ADSR  adsr;
   float frequency = 300;
   float duration = 0.0;
 
 
-  ULine1() {
-    wave   = new Oscil( frequency, 0, Waves.SINE );
-    ampEnv = new Line();
-    ampEnv.patch( wave.amplitude );
+  ULine2() {
+    wave   = new Oscil( frequency, 0.4, Waves.SINE );
+    noise = new Noise(Noise.Tint.RED);
+    adsr = new ADSR(0.2, 0.01, 0.02, 0.2, 1.0);
+    noise.patch( adsr );
   }
 
   void addVertex(PVector point) {
@@ -35,12 +45,13 @@ class ULine1 extends ULine {
 
     if (animate) {
       if (animationIndex == 0) {
-        play(2*verticesNb/frameRate);
+        play(verticesNb/frameRate);
+        //play(2.0);
       }
       for (int i = 0; i < animationIndex; i++) {
         float strokeW = strWeight*abs(sin(radians(i)+1));
         strokeWeight(strokeW);
-        wave.setFrequency(strokeW*50.0+20.0);
+        //wave.setFrequency(strokeW*50.0+20.0);
         //stroke(str);
         //stroke(color(255*abs(cos(0.5*radians(i))), 100*abs(sin(0.1*radians(i))), 0));
         //stroke(color(255*abs(cos(0.5*radians(i)))));
@@ -87,16 +98,19 @@ class ULine1 extends ULine {
 
   void noteOn( float _duration )
   {
-    // start the amplitude envelope
-    ampEnv.activate( _duration, 0.5f, 0 );
-    // attach the oscil to the output so it makes sound
-    wave.patch( out );
+    // turn on the ADSR
+    adsr.noteOn();
+    // patch to the output
+    adsr.patch( out );
   }
 
   // this is called by the sequencer when the instrument should
   // stop making sound
   void noteOff()
   {
-    wave.unpatch( out );
+    // tell the ADSR to unpatch after the release is finished
+    adsr.unpatchAfterRelease( out );
+    // call the noteOff 
+    adsr.noteOff();
   }
 }

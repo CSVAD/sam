@@ -1,24 +1,21 @@
+
 /**
  ** 
- ** Date: Nov 23, 2019
+ ** Date: Nov 26, 2019
  ** Description: Starting from the example of week5, the drawing tool.
  **
  **/
 
-import ddf.minim.*;
-import ddf.minim.analysis.*;
-import ddf.minim.effects.*;
-import ddf.minim.signals.*;
-import ddf.minim.spi.*;
-import ddf.minim.ugens.*;
 
-import drawing.library.*;
-//import processing.pdf.*;
+import netP5.*;
+import oscP5.*;
 
-Minim minim;
-AudioOutput out;
+OscP5 oscP5;
+NetAddress myRemoteLocation;
+
 
 ULine shape;
+ULine shape2;
 ArrayList<ULine> shapes = new ArrayList<ULine>();
 
 boolean animate = false;
@@ -29,18 +26,20 @@ color penColor = color(0, 0, 0);
 float rotateY = 0;
 float rotateXZ = 0;
 // false is color, true is 
-boolean mode = true;
-boolean insMode = true;
+boolean mode = false;
 
 void setup() {
+  // receiving message at port 2900 
+  oscP5 = new OscP5(this,2900);
+  
+  // sending message to port localhost, port 2900
+  myRemoteLocation = new NetAddress("127.0.0.1",2900);
+  
+  
   //fullScreen(P3D);
   size(800, 800, P3D);
   background(255);
-
-  // minim objects
-  minim = new Minim(this);
-  out = minim.getLineOut();
-
+  frameCount = 30;
   smooth();
   perspective(PI/3.0, float(width)/float(height), 10, 10000);
 }
@@ -49,23 +48,23 @@ void draw() {
   background(50);
   stroke(255);
   strokeWeight(2);
-  /*line(width/2, 100, 0, width/2, 1000, 0);
-   
-   pushMatrix();
-   translate(width/2, height/2);
-   rectMode(CENTER);
-   rotateY(rotateY);
-   noFill();
-   //translate(width/2, height/2, 0);
-   //rotateX(radians(85));
-   //ellipse(0,0, 1500, 1500);
-   fill(255, 50);
-   rect(0, 0, width, 5);
-   rotateY(radians(45));
-   rect(0, 0, width, 5);
-   rotateY(radians(45));
-   rect(0, 0, width, 5);
-   popMatrix();*/
+  //line(width/2, 100, 0, width/2, 1000, 0);
+
+  /*pushMatrix();
+  translate(width/2, height/2);
+  rectMode(CENTER);
+  rotateY(rotateY);
+  noFill();
+  //translate(width/2, height/2, 0);
+  //rotateX(radians(85));
+  //ellipse(0,0, 1500, 1500);
+  fill(255, 50);
+  rect(0, 0, width, 5);
+  rotateY(radians(45));
+  rect(0, 0, width, 5);
+  rotateY(radians(45));
+  rect(0, 0, width, 5);
+  popMatrix();*/
 
   pushMatrix();
   translate(width/2, height/2);
@@ -93,12 +92,10 @@ void draw() {
 
 void keyPressed() {
   if (key == ' ') {
-    // drawingManager.savePDF();
-    //shape.play(50.0);
-    insMode = !insMode;
+   // drawingManager.savePDF();
   }
   if (key == 'c') {
-    // drawingManager.clear();
+   // drawingManager.clear();
     shapes.clear();
   }
   if (key == '1') {
@@ -111,7 +108,7 @@ void keyPressed() {
 
   if (key == '3') {
     mode = !mode;
-    //shape.modeLine = mode;
+    shape.modeLine = mode;
   }
 
 
@@ -134,12 +131,9 @@ void keyPressed() {
 
 void mousePressed() {
   //shape = drawingManager.addShape(); 
-  if (insMode) {
-    shape = new ULine1();
-  } else {
-    shape = new ULine2();
-  }
+  shape = new ULine();
   shapes.add(shape);
+  //sendOsc();
 }
 
 void mouseDragged() {
@@ -151,6 +145,15 @@ void mouseDragged() {
   popMatrix();
 }
 
-void mouseReleased() {
+void mouseReleased(){
   //shape.play(2.0);
+}
+
+void sendOsc(String init, float mess ){
+    /* in the following different ways of creating osc messages are shown by example */
+  OscMessage myMessage = new OscMessage(init);
+  myMessage.add(mess); /* add an int to the osc message */
+
+  /* send the message */
+  oscP5.send(myMessage, myRemoteLocation); 
 }

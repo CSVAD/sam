@@ -1,5 +1,11 @@
 ## process journal
 
+### Nov 26, 2019
+I made simple instruments in Max/MSP and used OSC messages to communicate between Processing and Max. Communication works fine but I just realized that allocating (and releasing) a different instrument to each line will be complex.
+
+1st instrument: AM modulation of noise and a saw wave. The stroke weight of the drawn line controls the frequency occurrence of the ADSR envelope.
+
+
 ### Nov 24, 2019
 Other questions:
 - how to applied filters? specific tools to specific filter? e.g.: blur tool, sharpen tool?
