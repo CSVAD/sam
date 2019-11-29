@@ -1,5 +1,24 @@
 ## process journal
 
+### Nov 29, 2019
+**Some issues that make the current tool clunky**
+- When to play the sound depends on the length of the line, so in animation mode  
+
+### Nov 27, 2019
+
+**Trying to add physical behavior to the lines:**
+- Life expectancy.
+- Friction.
+- Motion?
+- Collision?
+
+**Behaviors to map:**
+- rapid shift in direction or in location should affect the sound quality: the gestural aspect of the project is important to achieve a sense of direct manipulation.
+- pressure which results in stroke weight.
+- curvature of the line?
+- location on panning?
+
+
 ### Nov 26, 2019
 I made simple instruments in Max/MSP and used OSC messages to communicate between Processing and Max. Communication works fine but I just realized that allocating (and releasing) a different instrument to each line will be complex.
 
@@ -20,7 +39,7 @@ Exploring minim on Processing.
     - lack of direct sonic and visual output when in animation mode.
     - maybe I should start by making the sound I like me minim first.
 
-Designing metaphor:
+**Designing metaphor:**
 - each line: an instrument with some characteristics depending of its physiognomy.
 - implementing big lines die before short ones.
 - inspirations for title
@@ -28,7 +47,7 @@ Designing metaphor:
     - macrophage
     - megafauna
 
-What could be sonified:
+**What could be sonified:**
 - ADSR
 - additive synthesis
     - with varying amount of partial depending of the weight stroke?
@@ -42,10 +61,10 @@ What could be sonified:
 - subtractive synthesis implies filters (Chapter 10).
 
 
-What could be the playback reader:
+**What could be the playback reader:**
 - my current framework could be seen as a 3d radar. The user could be able to manipulate the distance from the center point.
 
-What kind of sound I want my interface to enable?
+**What kind of sound I want my interface to enable?**
 - beats --> follow a rhythmic structure.
 - grain --> doesn't have to follow the structure.
 - long harmonic sounds --> doesn't have to follow a rhythmic structure.

@@ -12,14 +12,17 @@ import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
-import drawing.library.*;
-//import processing.pdf.*;
+import codeanticode.tablet.*;
+
+Tablet tablet;
 
 Minim minim;
 AudioOutput out;
 
 ULine shape;
 ArrayList<ULine> shapes = new ArrayList<ULine>();
+//HashMap<Integer, ULine> shapes = new HashMap<Integer, ULine>();
+
 
 boolean animate = false;
 boolean rotate = false;
@@ -30,7 +33,8 @@ float rotateY = 0;
 float rotateXZ = 0;
 // false is color, true is 
 boolean mode = true;
-boolean insMode = true;
+int insMode = 1;
+boolean drawingMode = false;
 
 void setup() {
   //fullScreen(P3D);
@@ -40,8 +44,10 @@ void setup() {
   // minim objects
   minim = new Minim(this);
   out = minim.getLineOut();
+  
+  tablet = new Tablet(this);
 
-  smooth();
+  //smooth();
   perspective(PI/3.0, float(width)/float(height), 10, 10000);
 }
 
@@ -89,16 +95,41 @@ void draw() {
   if (rotate) {
     rotateY += radians(0.05);
   }
+
+  checkLife(shapes);
 }
 
 void keyPressed() {
-  if (key == ' ') {
+  if (key == 'a') {
     // drawingManager.savePDF();
     //shape.play(50.0);
-    insMode = !insMode;
+    insMode = 1;
   }
+  if (key == 's') {
+    // drawingManager.savePDF();
+    //shape.play(50.0);
+    insMode = 2;
+  }
+  if (key == 'd') {
+    // drawingManager.savePDF();
+    //shape.play(50.0);
+    insMode = 3;
+  }
+  if (key == 'f') {
+    // drawingManager.savePDF();
+    //shape.play(50.0);
+    insMode = 4;
+  }
+
+
   if (key == 'c') {
     // drawingManager.clear();
+    for (int i = 0; i< shapes.size(); i++) {
+      if (shapes.get(i).filePlayer != null) {
+        println(shapes.get(i));
+        shapes.get(i).filePlayer.pause();
+      }
+    }
     shapes.clear();
   }
   if (key == '1') {
@@ -107,8 +138,6 @@ void keyPressed() {
   if (key == '2') {
     rotate = !rotate;
   }
-
-
   if (key == '3') {
     mode = !mode;
     //shape.modeLine = mode;
@@ -117,28 +146,33 @@ void keyPressed() {
 
   // world rotation keys 
   if (key == 'a') {
-    rotateY -= radians(5);
+    //  rotateY -= radians(5);
   }
   if (key == 'd') {
-    rotateY += radians(5);
+    // rotateY += radians(5);
   }
 
 
   if (key == 'w') {
-    rotateXZ += radians(5);
+    // rotateXZ += radians(5);
   }
   if (key == 's') {
-    rotateXZ -= radians(5);
+    // rotateXZ -= radians(5);
   }
 }
 
 void mousePressed() {
   //shape = drawingManager.addShape(); 
-  if (insMode) {
-    shape = new ULine1();
-  } else {
+  if (insMode == 1) {
+    shape = new ULineB1();
+  } else if (insMode == 2) {
     shape = new ULine2();
+  } else if (insMode == 3) {
+    shape = new USampler();
+  } else if (insMode == 4) {
+    shape = new ULineFM();
   }
+
   shapes.add(shape);
 }
 
@@ -153,4 +187,15 @@ void mouseDragged() {
 
 void mouseReleased() {
   //shape.play(2.0);
+  shape.finished();
+}
+
+void checkLife(ArrayList<ULine> al) {
+
+  for (int i = 0; i < al.size(); i++) {
+    if (!al.get(i).checkAlive()) {
+      al.get(i).noteOff();
+      al.remove(i);
+    }
+  }
 }
