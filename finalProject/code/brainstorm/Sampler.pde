@@ -1,8 +1,9 @@
 class USampler extends ULine {
   ArrayList<PVector> vertices = new ArrayList<PVector>();
   ArrayList<Float> speed = new ArrayList<Float>();
+
   //PVector previousPoint;
-  
+
   int verticesNb = 0;
   int animationIndex = 0;
   float strWeight = 5;
@@ -38,24 +39,24 @@ class USampler extends ULine {
     if (vertices.size() > 1) {
       duration += dist(point.x, point.y, point.z, vertices.get(verticesNb-2).x, vertices.get(verticesNb-2).y, vertices.get(verticesNb-2).z);
       //println(duration);
-      speed.add(dist(point.x, point.y, point.z, vertices.get(verticesNb - 2).x, vertices.get(verticesNb - 2).x,vertices.get(verticesNb - 2).x));
+      speed.add(dist(point.x, point.y, point.z, vertices.get(verticesNb - 2).x, vertices.get(verticesNb - 2).x, vertices.get(verticesNb - 2).x));
     } else if (vertices.size() == 1) {
       speed.add(0.f);
     }
-    
+
     //previousPoint = point;
   }
 
   void display() {
     beginShape();
 
-    if (animate) {
+    if (animateLine) {
       if (animationIndex == 0) {
         //play(2*verticesNb/frameRate);
         //filePlayer.play();
         filePlayer.loop();
       }
-      for (int i = 0; i < animationIndex; i++) {
+      for (int i = 0 + animationIndex2; i < animationIndex; i++) {
         float strokeW = strWeight*abs(sin(radians(i)+1));
         strokeWeight(strokeW);
         //rateControl.value.setLastValue(map(i, 0, animationIndex, 0.2, 1.0));
@@ -78,10 +79,35 @@ class USampler extends ULine {
         vertex(vertices.get(i).x, vertices.get(i).y, vertices.get(i).z);
       }
 
-      animationIndex += increment;
-      if (animationIndex > verticesNb || animationIndex < 0) {
-        increment = -increment;
+      /* animationIndex += increment;
+       if (animationIndex > verticesNb || animationIndex < 0) {
+       increment = -increment;
+       animationIndex += increment;
+       }*/
+      if (forward) {
         animationIndex += increment;
+
+        if (animationIndex > verticesNb) {
+          forward = false;
+          animationIndex2 = 0;
+          animationIndex -= 1;
+        }
+      }
+
+      if (!forward) {
+
+        animationIndex2 += increment;
+
+        if (animationIndex2 > verticesNb) {
+          if (doneDrawing) {
+            alive = false;
+           // filePlayer.pause();
+            noteOff();
+          }
+          forward = true;
+          animationIndex = 0;
+          animationIndex2 = 0;
+        }
       }
     } else {
       for (int i = 0; i < vertices.size(); i++) {
@@ -122,6 +148,7 @@ class USampler extends ULine {
   // stop making sound
   void noteOff()
   {
-    //wave.unpatch( out );
+    rateControl.unpatch(out);
+    //filePlayer.unpatch( out );
   }
 }

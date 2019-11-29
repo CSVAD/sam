@@ -7,6 +7,7 @@ class ULine implements Instrument {
   ArrayList<Float> strokes = new ArrayList<Float>();
 
   int verticesNb = 0;
+  boolean animateLine = false;
   int animationIndex = 0;
   int animationIndex2 = 0;
   float strWeight = 5;
@@ -56,5 +57,6 @@ class ULine implements Instrument {
 
   void finished() {
     doneDrawing = true;
+    animateLine = true;
   }
 }

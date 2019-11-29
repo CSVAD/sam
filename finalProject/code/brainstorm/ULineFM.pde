@@ -15,7 +15,7 @@ class ULineFM extends ULine {
     beginShape();
 
     //animation
-    if (animate) {
+    if (animateLine) {
       if (animationIndex == 1 && doneDrawing) {
         //noteOff();
         //play(2*(verticesNb - 2)/frameRate);

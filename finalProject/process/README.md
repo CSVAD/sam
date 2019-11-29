@@ -2,8 +2,9 @@
 
 ### Nov 29, 2019
 **Some issues that make the current tool clunky**
-- The moment to play the sound depends on the length of the line. So in animation mode, at the beginning of the gesture, the line is short, therefore, the sound plays only a fraction of second. 
-- Delay when drawing in animation mode.  
+- The moment to play the sound depends on the length of the line. So in animation mode, at the beginning of the gesture, the line is short, therefore, the sound plays only a fraction of second.
+- Delay when drawing in animation mode.
+--> Both problems are solved by adding individual animation mode to each line, rather than a global animation mode. As soon as the performer is done tracing the line, the line animates and produces its associated sound.   
 
 ### Nov 27, 2019
 

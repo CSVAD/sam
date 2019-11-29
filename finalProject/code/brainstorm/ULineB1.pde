@@ -43,7 +43,7 @@ class ULineB1 extends ULine {
     beginShape();
 
     //animation
-    if (animate) {
+    if (animateLine) {
       /*if (animationIndex == 1) {
        noteOff();
        //play(2*(verticesNb - 2)/frameRate);

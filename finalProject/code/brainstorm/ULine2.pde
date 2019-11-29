@@ -45,7 +45,7 @@ class ULine2 extends ULine {
   void display() {
     beginShape();
 
-    if (animate) {
+    if (animateLine) {
       if (animationIndex == 0) {
         play(verticesNb/frameRate);
         //play(2.0);
