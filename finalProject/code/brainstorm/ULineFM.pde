@@ -17,12 +17,17 @@ class ULineFM extends ULine {
     //animation
     if (animate) {
       if (animationIndex == 1 && doneDrawing) {
-       noteOff();
-       play(2*(verticesNb - 2)/frameRate);
-       }
+        //noteOff();
+        //play(2*(verticesNb - 2)/frameRate);
+        noteOn();
+      }
       for (int i = 0 + animationIndex2; i < animationIndex; i++) {
         //if (forward) {
-        float strokeW = strWeight*abs(sin(radians(i)+1));
+        float strokeW = strWeight*(abs(sin(radians(i)+1))+0.1f);
+        //fm.setFrequency(map( strokeW, 0, 50, 0.1, 100 ));
+        //println(strokeW);
+        fm.setFrequency(map( vertices.get(i).x, 0, width, 0.1, 100 ));
+        fm.setAmplitude( map( strokeW, 0, 100, 220, 1 ) );
         //} else {
         //float strokeW = strWeight*abs(sin(radians(i)+1));
         // }
@@ -72,6 +77,7 @@ class ULineFM extends ULine {
         if (animationIndex2 > verticesNb) {
           if (doneDrawing) {
             alive = false;
+            noteOff();
           }
           forward = true;
           animationIndex = 0;
@@ -125,7 +131,7 @@ class ULineFM extends ULine {
     out.playNote( 0.0, _duration, this);
   }
 
-  void noteOn( float _duration )
+  void noteOn( )
   {
     // start the amplitude envelope
     //kampEnv.activate( _duration, 0.5f, 0 );
