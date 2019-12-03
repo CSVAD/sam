@@ -2,6 +2,7 @@
 
 ### Dec 3, 2019
 **Update on the status of your project**
+- Found my metaphor: the canvas is an instrument that needs to be kept alive through interactions.
 - Familiarize myself with minim
 - Made a series of instruments that are attached to a line
     - fm synthesis
