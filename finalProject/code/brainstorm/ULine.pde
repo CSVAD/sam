@@ -47,10 +47,12 @@ class ULine implements Instrument {
   void display() {
   }
 
+
   boolean checkAlive() {
     if (alive) {
       return true;
     } else {
+      noteOff();
       return false;
     }
   }

@@ -1,3 +1,5 @@
+// life expectancy version of ULine1
+
 class ULineB1 extends ULine {
   ArrayList<PVector> vertices = new ArrayList<PVector>();
   ArrayList<Float> strokes = new ArrayList<Float>();
@@ -44,10 +46,11 @@ class ULineB1 extends ULine {
 
     //animation
     if (animateLine) {
-      /*if (animationIndex == 1) {
+      if (animationIndex == 1) {
        noteOff();
-       //play(2*(verticesNb - 2)/frameRate);
-       }*/
+       play(2*(verticesNb - 2)/frameRate);
+       
+       }
       for (int i = 0 + animationIndex2; i < animationIndex; i++) {
         //if (forward) {
         float strokeW = strWeight*abs(sin(radians(i)+1));
@@ -81,7 +84,7 @@ class ULineB1 extends ULine {
         vertex(vertices.get(i).x, vertices.get(i).y, vertices.get(i).z);
       }
 
-      play(1/frameRate);
+      //play(1/frameRate);
 
       if (forward) {
         animationIndex += increment;

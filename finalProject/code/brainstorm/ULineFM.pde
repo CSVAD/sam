@@ -4,7 +4,7 @@ class ULineFM extends ULine {
 
   ULineFM() {
     wave = new Oscil( 200, 0.8, Waves.TRIANGLE );
-    fm   = new Oscil( 10, 2, Waves.SINE );
+    fm   = new Oscil( 10, 2, Waves.TRIANGLE );
     // set the offset of fm so that it generates values centered around 200 Hz
     fm.offset.setLastValue( 200 );
     // patch it to the frequency of wave so it controls it

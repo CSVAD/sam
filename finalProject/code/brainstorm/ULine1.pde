@@ -1,3 +1,5 @@
+// osc with line envelope
+
 class ULine1 extends ULine {
   ArrayList<PVector> vertices = new ArrayList<PVector>();
   int verticesNb = 0;

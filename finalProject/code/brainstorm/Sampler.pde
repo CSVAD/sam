@@ -15,7 +15,7 @@ class USampler extends ULine {
   float frequency = 300;
   float duration = 0.0;
 
-  String fileName = "colStereo.aif";
+  String fileName = "colors1.aif";
   TickRate rateControl;
   FilePlayer filePlayer;
 

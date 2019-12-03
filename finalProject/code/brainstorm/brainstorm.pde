@@ -34,7 +34,8 @@ float rotateXZ = 0;
 // false is color, true is 
 boolean mode = true;
 int insMode = 1;
-boolean drawingMode = false;
+// true for tablet, false for mouse
+boolean drawingMode = true;
 
 void setup() {
   //fullScreen(P3D);
@@ -120,6 +121,19 @@ void keyPressed() {
     //shape.play(50.0);
     insMode = 4;
   }
+  
+   if (key == 'g') {
+    // drawingManager.savePDF();
+    //shape.play(50.0);
+    insMode = 5;
+  }
+  
+  
+   if (key == 'h') {
+    // drawingManager.savePDF();
+    //shape.play(50.0);
+    insMode = 6;
+  }
 
 
   if (key == 'c') {
@@ -128,7 +142,11 @@ void keyPressed() {
       if (shapes.get(i).filePlayer != null) {
         println(shapes.get(i));
         shapes.get(i).filePlayer.pause();
+      } else {
+        shapes.get(i).noteOff();
       }
+      
+      
     }
     shapes.clear();
   }
@@ -166,11 +184,15 @@ void mousePressed() {
   if (insMode == 1) {
     shape = new ULineB1();
   } else if (insMode == 2) {
-    shape = new ULine2();
+    shape = new ULineB2();
   } else if (insMode == 3) {
     shape = new USampler();
   } else if (insMode == 4) {
     shape = new ULineFM();
+  } else if (insMode == 5) {
+    shape = new ULineC();
+  } else if (insMode == 6) {
+    shape = new ULineAS();
   }
 
   shapes.add(shape);
@@ -182,6 +204,7 @@ void mouseDragged() {
   //drawingManager.stroke(0, 0, 0);
   //float distance = dist();
   shape.addVertex(new PVector((mouseX -width/2)*cos(rotateY), mouseY - height/2, (mouseX -width/2)*sin(rotateY)));
+  //println(new PVector((mouseX -width/2)*cos(rotateY), mouseY - height/2, (mouseX -width/2)*sin(rotateY)));
   popMatrix();
 }
 

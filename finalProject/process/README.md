@@ -1,10 +1,45 @@
 ## process journal
 
+### Dec 3, 2019
+**Update on the status of your project**
+- Familiarize myself with minim
+- Made a series of instruments that are attached to a line
+    - fm synthesis
+    - am synthesis
+    - additive synthesis
+    - samples
+- Identify 3 gestural elements to map sound to
+    - speed
+    - curvature
+    - length of the line
+- Made different animation behaviors
+    - infinite drawing
+    - spring
+    - life expectancy
+
+**Challenges**
+- Still wondering about the compositional qualities of the tool, I haven't find the perfect combinations yet
+- Loss of direct manipulation due to redrawn to animate approach
+- Technical issues with minim
+
+
+### Dec 1, 2019
+Now that I experimented with the minim library, it's time to select and polish the instruments that I will showcase to the class as my final project.
+
+**Other ideas**
+- The line could change the frequency as well as the beat repetition of a sound.
+
+
 ### Nov 29, 2019
 **Some issues that make the current tool clunky**
 - The moment to play the sound depends on the length of the line. So in animation mode, at the beginning of the gesture, the line is short, therefore, the sound plays only a fraction of second.
 - Delay when drawing in animation mode.
 --> Both problems are solved by adding individual animation mode to each line, rather than a global animation mode. As soon as the performer is done tracing the line, the line animates and produces its associated sound.   
+
+- The aesthetic of the lines could be refined to account for the different instruments used in the composition.
+
+**Back to behaviors**
+- I implemented of few behaviors: life expectancy and spring&damping. I works well, I enjoy the _physicality_ of these lines.
 
 ### Nov 27, 2019
 
@@ -13,6 +48,7 @@
 - Friction.
 - Motion?
 - Collision?
+- Spring and damping.
 
 **Behaviors to map:**
 - rapid shift in direction or in location should affect the sound quality: the gestural aspect of the project is important to achieve a sense of direct manipulation.
