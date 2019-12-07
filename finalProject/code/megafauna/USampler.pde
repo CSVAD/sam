@@ -44,7 +44,7 @@ class USampler extends ULine {
         float rate = map(speed.get(i), 0, 1000, 0f, 3.f);
         rateControl.value.setLastValue(rate);
 
-        stroke(color(255*map(rate, 0f, 1.5f, 1f, 0f), 50*map(rate, 0f, 1.5f, 0f, 1f), 0.0));
+        stroke(color(255*map(rate, 0f, 1.5f, 1f, 0f), 0.0, 0.0));
         noFill();
         vertex(vertices.get(i).x, vertices.get(i).y, vertices.get(i).z);
       }
@@ -78,7 +78,7 @@ class USampler extends ULine {
         float rate = map(speed.get(i), 0, 1000, 0f, 3.f);
 
         strokeWeight(strWeight*abs(sin(radians(i)+1)));
-        stroke(color(255*map(rate, 0f, 1.5f, 1f, 0f), 50*map(rate, 0f, 1.5f, 0f, 1f), 0.0));
+        stroke(color(255*map(rate, 0f, 1.5f, 1f, 0f), 0.0, 0.0));
 
         noFill();
         vertex(vertices.get(i).x, vertices.get(i).y, vertices.get(i).z);

@@ -1,9 +1,10 @@
 class UAddSynth extends ULine {
   ArrayList<PVector>[] vertices = new ArrayList[10];
-  Oscil[] oscs = new Oscil[10];
+  Oscil[] oscs = new Oscil[3];
   Oscil[] amps = new Oscil[10];
   float noiseValue = 0.01;
   Summer sum = new Summer();
+  float alpha = 255.0;
 
   UAddSynth() {
     // attach multiple lines to the additive synth
@@ -15,11 +16,12 @@ class UAddSynth extends ULine {
     for (int i = 0; i < oscs.length; i++) {
       // oscs[i] = new Oscil(50.f + (i+1) * 50f, 0.0f, Waves.randomNHarms( 10 ));
 
-      oscs[i] = new Oscil(50.f + (i+1) * 50f, 0.0f, Waves.randomNOddHarms( 10 ));
-      // oscs[i] = new Oscil(50.f + (i+1) * 50f, 0.0f, Waves.SINE);
+      //oscs[i] = new Oscil(20.f + (i+1) * 20f, .1f, Waves.randomNOddHarms( 5 ));
+      oscs[i] = new Oscil(50.f + (i+1) * 10f, 1.0/(oscs.length+3), Waves.randomNHarms( 3 ));
 
-      amps[i] = new Oscil(5.0f*(i+1), 1.0/vertices.length, Waves.SINE);
+      amps[i] = new Oscil(1.0f*(i+1), 1.0/vertices.length, Waves.SINE);
       amps[i].patch(oscs[i].amplitude);
+      //amps[i].patch(oscs[i].frequency);
       //oscs[i].patch(sum);
     }
 
@@ -53,109 +55,120 @@ class UAddSynth extends ULine {
   }
 
   void display() {
-    for (int k = 0; k < vertices.length; k++) {
-      beginShape();
-      //animation
-      if (animateLine) {
-        if (animationIndex == 0) {
-          noteOff();
-          //play(2*(verticesNb - 2)/frameRate);
-          noteOn(10f);
-        }
 
-        for (int i = 0 + animationIndex2; i < animationIndex; i++) {
-          float strokeW = strWeight*abs(sin(radians(i)+1));
-          if (drawingMode) {
-            strokeWeight(strokes.get(i));
-          } else {
-            strokeWeight(strokeW);
+    for (int k = 0; k < vertices.length; k++) {
+      if (vertices[k].size() != 0) {
+        beginShape();
+        //animation
+        if (animateLine) {
+          if (animationIndex == 0) {
+            noteOff();
+            //play(2*(verticesNb - 2)/frameRate);
+            noteOn(10f);
+            alpha-=2;
+            for (int j =0; j < oscs.length; j++) {
+              amps[j].setAmplitude(map(alpha, 0., 255., 0., 1.0/vertices.length ));
+            }
           }
+
+          for (int i = 0 + animationIndex2; i < animationIndex; i++) {
+            float strokeW = strWeight*abs(sin(radians(i)+1));
+            if (drawingMode) {
+              strokeWeight(strokes.get(i));
+            } else {
+              strokeWeight(strokeW);
+            }
+
+            if (forward) {
+              for (int j = 0; j < oscs.length; j++) {
+                //oscs[j].setFrequency(animationIndex*50.0+20.0);
+                //oscs[j].setFrequency(verticesNb);
+                //oscs[j].setAmplitude(noise(j * noiseValue));
+              }
+              stroke(255*animationIndex);
+            } else {
+              for (int j = 0; j < oscs.length; j++) {
+                //oscs[j].setFrequency((verticesNb - animationIndex2)*50.0+20.0);
+                //oscs[j].setAmplitude(noise(j * noiseValue));
+              }
+              stroke(255-255*(verticesNb - animationIndex2));
+            }
+
+            noiseValue += 0.01;
+
+            //if (modeLine) {
+            //stroke(color(100*abs(cos(0.5*radians(i))), 0, 255*abs(sin(0.1*radians(i))), alpha));
+            //stroke();
+            //} else {
+            stroke(color(255-255*abs(cos(0.5*radians(i)))));
+            //}
+
+            noFill();
+            //          for (int j = 0; j< vertices.length; j++) {
+
+            vertex(vertices[k].get(i).x, vertices[k].get(i).y, vertices[k].get(i).z);
+            //  }
+          }
+
+          //play(1/frameRate);
 
           if (forward) {
-            for (int j = 0; j < oscs.length; j++) {
-              oscs[j].setFrequency(animationIndex*50.0+20.0);
-              //oscs[j].setFrequency(verticesNb);
-              //oscs[j].setAmplitude(noise(j * noiseValue));
+            animationIndex += increment;
+
+            if (animationIndex > verticesNb) {
+              forward = false;
+              animationIndex2 = 0;
+              animationIndex -= 1;
             }
-            stroke(255*animationIndex);
-          } else {
-            for (int j = 0; j < oscs.length; j++) {
-              oscs[j].setFrequency((verticesNb - animationIndex2)*50.0+20.0);
-              //oscs[j].setAmplitude(noise(j * noiseValue));
+          }
+
+          if (!forward) {
+
+            animationIndex2 += increment;
+
+            if (animationIndex2 > verticesNb) {
+              if (doneDrawing) {
+                //alive = false;
+              }
+              forward = true;
+              animationIndex = 0;
+              animationIndex2 = 0;
             }
-            stroke(255*(verticesNb - animationIndex2));
           }
 
-          noiseValue += 0.01;
-
-          //if (modeLine) {
-          stroke(color(100*abs(cos(0.5*radians(i))), 0, 255*abs(sin(0.1*radians(i)))));
-          //} else {
-          //  stroke(color(255*abs(cos(0.5*radians(i)))));
-          //}
-
-          noFill();
-          //          for (int j = 0; j< vertices.length; j++) {
-
-          vertex(vertices[k].get(i).x, vertices[k].get(i).y, vertices[k].get(i).z);
-          //  }
-        }
-
-        //play(1/frameRate);
-
-        if (forward) {
-          animationIndex += increment;
-
-          if (animationIndex > verticesNb) {
-            forward = false;
-            animationIndex2 = 0;
-            animationIndex -= 1;
+          if (alpha < 0) {
+            alive = false;
+            //verticesNb--;
           }
-        }
-
-        if (!forward) {
-
-          animationIndex2 += increment;
-
-          if (animationIndex2 > verticesNb) {
-            if (doneDrawing) {
-              //alive = false;
+        } else {
+          // when tracing the first time
+          for (int i = 0; i < vertices[0].size(); i++) {
+            if (drawingMode) {
+              strokeWeight(strokes.get(i));
+            } else {
+              strokeWeight(strWeight*abs(sin(radians(i)+1)));
             }
-            forward = true;
-            animationIndex = 0;
-            animationIndex2 = 0;
+
+
+            // stroke(255);
+
+
+            //if (modeLine) {
+            // stroke(color(255*abs(cos(0.5*radians(i))), 100*abs(sin(0.1*radians(i))), 0));
+            //} else {
+            stroke(color(255-255*abs(cos(0.5*radians(i)))));
+            //}
+            // stroke(color(100*abs(cos(0.5*radians(i))), 0, 255*abs(sin(0.1*radians(i)))));
+
+
+            noFill();
+            //for (int j = 0; j< vertices.length; j++) {
+            vertex(vertices[k].get(i).x, vertices[k].get(i).y, vertices[k].get(i).z);
+            //}
           }
         }
-
-        if (millis() % 500 == 0) {
-          verticesNb--;
-        }
-      } else {
-        // when tracing the first time
-        for (int i = 0; i < vertices[0].size(); i++) {
-          if (drawingMode) {
-            strokeWeight(strokes.get(i));
-          } else {
-            strokeWeight(strWeight*abs(sin(radians(i)+1)));
-          }
-
-
-          // stroke(255);
-
-
-          //if (modeLine) {
-          // stroke(color(255*abs(cos(0.5*radians(i))), 100*abs(sin(0.1*radians(i))), 0));
-          //} else {
-          stroke(color(255*abs(cos(0.5*radians(i)))));
-          //}
-
-          noFill();
-          //for (int j = 0; j< vertices.length; j++) {
-          vertex(vertices[k].get(i).x, vertices[k].get(i).y, vertices[k].get(i).z);
-          //}
-        }
+        endShape();
       }
-      endShape();
     }
   }
 

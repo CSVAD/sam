@@ -1,7 +1,14 @@
 ## process journal
+### Dec 5, 2019
+**Some progress**
+- in coherence in the aesthetic
+- noticing interesting relationship emerging from the composition of lines
+- reaching a more interesting and self-consistent state
 
 ### Dec 3, 2019
 **Update on the status of your project**
+
+**Done**
 - Found my metaphor: the canvas is an instrument that needs to be kept alive through interactions.
 - Familiarize myself with minim
 - Made a series of instruments that are attached to a line

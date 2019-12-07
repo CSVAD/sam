@@ -1,6 +1,9 @@
 class UClap extends ULine {
   float speed = 10f;
   float distance = 0f;
+  float tempo = 1000;
+  float trigger = millis();
+
 
   UClap() {
   }
@@ -10,8 +13,9 @@ class UClap extends ULine {
 
     //animation
     if (animateLine) {
-      if (animationIndex % speed == 0 && doneDrawing) {
-        
+      //if (animationIndex % speed == 0 && doneDrawing) {
+      if (doneDrawing && millis() - trigger > 20*tempo/ (int)speed) {
+        trigger = millis();
         //noteOff();
         //play(2*(verticesNb - 2)/frameRate);
         out.playNote( 0.0, 0.3, new Clap(speed*5));
@@ -85,11 +89,8 @@ class UClap extends ULine {
           distance = PVector.dist(vertices.get(i - 1), vertices.get(i));
         }
 
-        if (modeLine) {
-          stroke(color(255*abs(cos(0.5*radians(i))), 100*abs(sin(0.1*radians(i))), 0));
-        } else {
-          stroke(color(255*abs(cos(0.5*radians(i)))));
-        }
+
+        stroke(color(255*abs(cos(0.5*radians(i)))));
         stroke(50+205*map(distance, 0., 20., 0., 1.));
 
         noFill();

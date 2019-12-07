@@ -35,7 +35,7 @@ float rotateXZ = 0;
 boolean mode = true;
 int insMode = 1;
 // true for tablet, false for mouse
-boolean drawingMode = true;
+boolean drawingMode = false;
 
 void setup() {
   //fullScreen(P3D);
@@ -45,7 +45,7 @@ void setup() {
   // minim objects
   minim = new Minim(this);
   out = minim.getLineOut();
-  
+
   tablet = new Tablet(this);
 
   //smooth();
@@ -121,15 +121,15 @@ void keyPressed() {
     //shape.play(50.0);
     insMode = 4;
   }
-  
-   if (key == 'g') {
+
+  if (key == 'g') {
     // drawingManager.savePDF();
     //shape.play(50.0);
     insMode = 5;
   }
-  
-  
-   if (key == 'h') {
+
+
+  if (key == 'h') {
     // drawingManager.savePDF();
     //shape.play(50.0);
     insMode = 6;
@@ -145,8 +145,6 @@ void keyPressed() {
       } else {
         shapes.get(i).noteOff();
       }
-      
-      
     }
     shapes.clear();
   }
@@ -214,7 +212,6 @@ void mouseReleased() {
 }
 
 void checkLife(ArrayList<ULine> al) {
-
   for (int i = 0; i < al.size(); i++) {
     if (!al.get(i).checkAlive()) {
       al.get(i).noteOff();

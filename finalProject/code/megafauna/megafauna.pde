@@ -20,6 +20,7 @@ import codeanticode.tablet.*;
 Tablet tablet;
 // true for tablet, false for mouse
 boolean drawingMode = false;
+UTimer ut;
 
 Minim minim;
 AudioOutput out;
@@ -29,17 +30,18 @@ ArrayList<ULine> shapes = new ArrayList<ULine>();
 ULine shape;
 
 // Rotate the world
-boolean rotate = false;
+boolean rotate = true;
 float rotateY = 0;
 float rotateXZ = 0;
 
 // what instrument is being drawn
-int insMode = 1;
+int insMode = 0;
+boolean backMode = false;
 
 void setup() {
   //fullScreen(P3D);
   size(800, 800, P3D);
-  background(0);
+  background(255);
 
   // minim objects
   minim = new Minim(this);
@@ -52,7 +54,15 @@ void setup() {
 }
 
 void draw() {
-  background(0);
+  /*if (millis() % 100 == 0) {
+    backMode = !backMode;
+  }*/
+
+  if (!backMode) {
+    background(0);
+  } else {
+    background(255);
+  }
   stroke(255);
   strokeWeight(2);
 
@@ -62,10 +72,21 @@ void draw() {
   rotateX(rotateXZ);
   rotateY(rotateY);
 
+  if (ut != null) {
+    if (ut.vertices.size()!=0) {
+      ut.display();
+    }
+    if (insMode != 0) {
+      ut.metronome();
+    }
+  }
+
   // display the shapes
   if (!shapes.isEmpty()) {
     for (int i = 0; i < shapes.size(); i++) {
+      //if (shapes.get(i).vertices.size()!=0) {
       shapes.get(i).display();
+      //}
     }
   }
   popMatrix();
@@ -80,7 +101,6 @@ void draw() {
 }
 
 void keyPressed() {
-
   // change the instrument mode
   if (key == 'a') {
     insMode = 1;
@@ -129,26 +149,41 @@ void mousePressed() {
     shape = new USampler();
   } else if (insMode == 2) {
     shape = new UAddSynth();
-  } /*else if (insMode == 4) {
-    shape = new ULineFM();
+  } else if (insMode == 4) {
+    shape = new ULine3();
   } else if (insMode == 5) {
-    shape = new ULineC();
+    shape = new ULineFM();
   } else if (insMode == 6) {
-    shape = new ULineAS();
-  }*/
-  shapes.add(shape);
+    shape = new ULine4();
+  } else if (insMode == 0) {
+    ut = new UTimer();
+    //ut = shape;
+  }
+
+  if (insMode != 0) {
+    shapes.add(shape);
+  }
 }
 
 void mouseDragged() {
   // add vertex to the shape being drawn
   pushMatrix();
-  shape.addVertex(new PVector((mouseX -width/2)*cos(rotateY), mouseY - height/2, (mouseX -width/2)*sin(rotateY)));
+  if (insMode != 0) {
+    shape.addVertex(new PVector((mouseX -width/2)*cos(rotateY), mouseY - height/2, (mouseX -width/2)*sin(rotateY)));
+  } else {
+    ut.addVertex(new PVector((mouseX -width/2)*cos(rotateY), mouseY - height/2, (mouseX -width/2)*sin(rotateY)));
+  }
   popMatrix();
 }
 
 void mouseReleased() {
   // finish the shape
-  shape.finished();
+  if (insMode != 0) {
+    shape.finished();
+  } else {
+    ut.finished();
+    insMode++;
+  }
 }
 
 // check life of the shape and remove from arraylist if dead

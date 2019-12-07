@@ -14,7 +14,6 @@ class ULine implements Instrument {
   color str = color(0);
   float increment = 1;
   boolean forward = true;
-  boolean modeLine = false;
   float duration = 0.0;
 
 

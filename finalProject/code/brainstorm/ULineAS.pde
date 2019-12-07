@@ -55,9 +55,7 @@ class ULineAS extends ULine {
   void display() {
 
     for (int k = 0; k < vertices.length; k++) {
-
       beginShape();
-
       //animation
       if (animateLine) {
         if (animationIndex == 0) {
