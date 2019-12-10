@@ -80,7 +80,7 @@ Aesthetic of lines
 - creating tight bind between lines and sound: what to map to what? does everything needs to be meaningful or can it be purely aesthetic?
     - methodology to approach the problem: a sound to a line.
 - finding a coherent aesthetic.
-    - removing unessential visual feature.
+    - removing inessential visual feature.
 
 
 #### learning
