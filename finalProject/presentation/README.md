@@ -5,7 +5,7 @@
 
 **Design metaphor:** creating a context that needs to be perpetually maintained in order to persist visually and sonically in time.
 
-video performance [here](https://vimeo.com/378214074).
+video performance [here](http://sambourgault.com/megafauna.html).
 
 ![docu1](megafauna03.png)
 
@@ -40,7 +40,7 @@ Aim: "bringing two things to bear on the problem space of audiovisual instrument
 #### components
 Back end: heavily based on object-oriented programming and polymorphism.
 
-Basic unit: the line.
+Visual unit: the line.
 A sound and a behavior is associated with each line.
 
 Sound units:
