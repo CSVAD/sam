@@ -1,56 +1,86 @@
+# megafauna
 ## final presentation
-- prepare a 7 minute presentation on their final project for the day of the critique.
+### PRODUCT
+**Description:** first prototype to create a gestural drawing tool that enables sound composition and behavioral animation.
 
-- The presentation should include the following elements.
+**Design metaphor:** creating a context that needs to be perpetually maintain in order to persist visually and sonically in time.
 
-### Product
-i.e. what you made:
-Show images, videos, or a live demonstration of your final project. Choose a form that best corresponds with highlighting the key elements of your project. If you produced a generative series, Note that if you opt for a live demonstration, it's usually a good idea to have backup recorded footage of a successful run since bugs and crashes happen.
+video performance [here](https://vimeo.com/378214074).
 
-**Description:** first attempt to create a gestural drawing tool that enables sound composition and behavioral animation.
+![docu1](megafauna03.png)
 
+![docu1](megafauna04.png)
 
-
-
+![docu1](megafauna05.png)
 
 
-### Concept and Motivation
-i.e why you made it:
-Clearly describe your project idea and the motivation behind it. This may include, but is not limited to - the kinds of art or design ideas you were seeking to express, the types of people you were interested in supporting, and specific technical challenges you were attempting to take on. If your idea builds off or is inspired by prior work, describe how your work extends or differs from what has been done before.
+### CONCEPT AND MOTIVATION
+#### why
+This is a first attempt to make a performable tool that combines sound and drawing. It puts forward direct manipulation as a way to interact with both components using gestures.
 
 ![gestures](gesture.png)
 
 My range of gestural behaviors using the line as a basic unit of composition is represented in the image above. Each of these lines requires a specific gesture to be accomplished. In that sense, the drawing process is deeply **performative**, drawing is in part a choreographic encounter that leaves a trace on a surface. This part of the process is rarely put forward.
 
-Design metaphor: creating a context that needs to be perpetually maintain in order to persist visually and sonically in time.
+#### who
 
-Animation behaviors to enable
+This tool is designed for myself as a first user/performer. Wanting to engage with thorough design practices, this first stage is a playground where I am a [guinea pig](https://upload.wikimedia.org/wikipedia/commons/f/fc/Two_Adult_Guinea_Pigs_%28cropped%29.jpg).
+
+In the future, I would like this tool to be available to other performers but I feel that it requires more work before involving other people. In this case, more work means mainly more flexibility in the creation of sound and brushes.
 
 
-### Process
+#### inspirations
+
+Golan Levin's [thesis](https://acg.media.mit.edu/people/golan/thesis/thesis300.pdf): the way Golan Levin worked on his different audio visual tools is extremely methodic. Reading his thesis gave me the intuition to design for sound and visual.
+
+Aim: "bringing two things to bear on the problem space of audiovisual instruments: firstly, flexible technologies, such as real-time audio synthesis, gestural signal analysis, and expressive gestural interfaces; and secondly, a systems aesthetic, which seeks to substantiate such works with an underpinning of perceptual motivation, and infuse such works with a vibrant collaboration between the system’s designer and its performer."
+
+
+### PROCESS
 i.e. how you made it:
 Provide an overview of the process you took in completing your final project. This should include the following:
 
-1) a discussion of specific challenges you encountered during the process and how you addressed them,
+#### components
+Back end: heavily based on object-oriented programming and polymorphism.
 
-2) how your concept and motivation evolved throughout the course of working on the project, and
-Basic unit: the line
+Basic unit: the line.
+A sound and a behavior is associated with each line.
 
+Sound synthesis and samples.
+- sampler
+- additive synthesis
+- fm synthesis
+- am synthesis (line, adsr)
+
+#### evolution
 Identification of the potential gestural parameters
 - length of the line
-- pressure of the  pencil
+- pressure of the pencil
 - curvature of the line
 - speed of the drawing process
 
 Sound features to map
 - frequency and amplitude
--
-- filters' parameters
+- playback speed
+- repetition rhythm
+- envelope parameters
+- filtering parameters
 
-Behaviors
+Basic Behaviors
 - queue (FIFO)
 - stack (FILO)
 - disappearance through alpha
--
+- rotation around axis
 
-3) what you learned through the process. For projects that focus on a particular algorithm (generative series, ML based approaches, etc.) your discussion of process should include an overview of your algorithm functionality.
+#### challenges
+- creating tight bind between lines and sound: what to map to what? does everything needs to be meaningful or can it be purely aesthetic?
+    - methodology to approach the problem: a sound to a line.
+- finding a coherent aesthetic.
+    - removing unessential visual feature.
+
+
+#### learning
+**Observations**
+
+- Visual composition guides my interaction with the tool. I see the lines cohabiting in this environments in symbiosis.
+- I want control on my sound so it's hard to plan good variations.

@@ -1,9 +1,14 @@
 class ULineFM extends ULine {
   Oscil wave;
   Oscil fm;
+  PVector derivative = new PVector(0, 0, 0);
+  PVector previousDerivative= new PVector(0, 0, 0);
+
+
+
 
   ULineFM() {
-    wave = new Oscil( 200, 0.2, Waves.TRIANGLE );
+    wave = new Oscil( 200, 0.3, Waves.TRIANGLE );
     fm   = new Oscil( 10, 1.0, Waves.TRIANGLE );
     // set the offset of fm so that it generates values centered around 200 Hz
     fm.offset.setLastValue( 200 );
@@ -21,13 +26,28 @@ class ULineFM extends ULine {
         //play(2*(verticesNb - 2)/frameRate);
         noteOn();
       }
+
       for (int i = 0 + animationIndex2; i < animationIndex; i++) {
         //if (forward) {
+
+        if (i > 0) {
+          derivative = PVector.sub(vertices.get(i), vertices.get(i-1));
+        }
+
+
         float strokeW = strWeight*(abs(sin(radians(i)+1))+0.1f);
         //fm.setFrequency(map( strokeW, 0, 50, 0.1, 100 ));
         //println(strokeW);
-        fm.setFrequency(map(vertices.get(i).x, 0, width, 0.1, 100 ));
-        fm.setAmplitude( map(strokeW, 0, 100, 220, 1 ) );
+        //float freq = map(PVector.angleBetween(derivative, previousDerivative), 0.f, 1f, 1.f, 100.f); //lerp(angle, PVector.angleBetween(derivative, previousDerivative), 0.1);
+
+        if (forward) {
+          fm.setFrequency(map(vertices.get(i).x, 0, width, 20, 100 ));
+          
+          // fm.setFrequency(lerp(fm.frequency.getLastValue(), freq, 0.1 ));
+        } else {
+          fm.setFrequency(map(vertices.get(verticesNb - animationIndex2).x, 0, width, 20, 100 ));
+        }
+        fm.setAmplitude( map(strokeW, 0, 100, 50, 1 ) );
 
         if (drawingMode) {
           strokeWeight(strokes.get(i));
@@ -36,15 +56,21 @@ class ULineFM extends ULine {
         }
         //println(i);
         if (forward) {
-          wave.setFrequency(animationIndex*50.0+20.0);
+          // wave.setFrequency(animationIndex*50.0+20.0);
         } else {
-          wave.setFrequency((verticesNb - animationIndex2)*50.0+20.0);
+          // wave.setFrequency((verticesNb - animationIndex2)*50.0+20.0);
         }
 
+
         stroke(color(255*abs(cos(0.5*radians(i)))));
+        //stroke(255*map(lerp(fm.frequency.getLastValue(), freq, 0.1), 1.f, 100.f, 0f, 1f));
 
         noFill();
         vertex(vertices.get(i).x, vertices.get(i).y, vertices.get(i).z);
+
+        if (i > 0) {
+          previousDerivative = derivative;
+        }
       }
 
       //play(1/frameRate);
@@ -73,26 +99,9 @@ class ULineFM extends ULine {
           animationIndex2 = 0;
         }
       }
-
-      //println(animationIndex);
-      /* if (animationIndex > verticesNb || animationIndex < 0) {
-       //println(animationIndex);
-       increment = -increment;
-       if (animationIndex > verticesNb){
-       animationIndex = verticesNb;
-       } else {
-       animationIndex = 0;
-       println("yooo " + animationIndex);
-       
-       }*/
-
-      if (animationIndex < verticesNb) {
-        //animationIndex += increment;
-      }
     } else {
       // when tracing the first time
       for (int i = 0; i < vertices.size(); i++) {
-        //float strokeW = strWeight*tablet.getPressure();
         if (drawingMode) {
           strokeWeight(strokes.get(i));
         } else {

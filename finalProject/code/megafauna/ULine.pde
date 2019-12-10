@@ -24,7 +24,7 @@ class ULine implements Instrument {
     vertices.add(point);
     // if the tablet is connected, consider Pressure.
     if (drawingMode) {
-      strokes.add(tablet.getPressure()*tablet.getPressure()*100);
+      strokes.add(pressure*100);
     }
 
     verticesNb++;

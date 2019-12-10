@@ -30,13 +30,13 @@ class USampler extends ULine {
 
   void display() {
     beginShape();
-
     if (animateLine) {
       if (animationIndex == 0) {
         //play(2*verticesNb/frameRate);
         //filePlayer.play();
         filePlayer.loop();
       }
+      
       for (int i = 0 + animationIndex2; i < animationIndex; i++) {
         float strokeW = strWeight*abs(sin(radians(i)+1));
         strokeWeight(strokeW);

@@ -27,10 +27,11 @@ class ULine3 extends ULine {
 
 
   ULine3() {
-    /*wave   = new Oscil( frequency, 0.4, Waves.SINE );
-     noise = new Noise(Noise.Tint.RED);
-     adsr = new ADSR(0.2, 0.01, 0.02, 0.2, 1.0);
-     noise.patch( adsr );*/
+    wave   = new Oscil( frequency, 0.4, Waves.SINE );
+    noise = new Noise(Noise.Tint.RED);
+    adsr = new ADSR(0.2, 0.01, 0.02, 0.2, 1.0);
+    noise.patch( adsr );
+
     for (int i = 0; i < vertices.length; i++) {
       vertices[i] = new ArrayList<PVector>();
     }
@@ -43,16 +44,18 @@ class ULine3 extends ULine {
       PVector perpendicular = direction.cross(new PVector(0, 0, 1)).normalize();
       //println(perpendicular);
       if (i == 0) {
-        vertices[i].add((PVector.add(point, perpendicular.mult(70*sin(radians(vertices[i].size()))))));
+        //vertices[i].add((PVector.add(point, perpendicular.mult(70*sin(radians(vertices[i].size()))))));
+        vertices[i].add((PVector.add(point, perpendicular.mult(100*pressure))));
       } else {
-        vertices[i].add((PVector.sub(point, perpendicular.mult(70*sin(radians(vertices[i].size()))))));
+        //vertices[i].add((PVector.sub(point, perpendicular.mult(70*sin(radians(vertices[i].size()))))));
+        vertices[i].add((PVector.sub(point, perpendicular.mult(100*pressure))));
       }
       //println(vertices[i]);
     }
 
     // use the tablet pressure, when connected
     if (drawingMode) {
-      strokes.add(tablet.getPressure()*tablet.getPressure()*10);
+      strokes.add(pressure*10);
     }
 
     verticesNb++;
@@ -70,7 +73,14 @@ class ULine3 extends ULine {
       //animation
       if (animateLine) {
         if (animationIndex == 0) {
-          //noteOff();
+          noteOff();
+          if (vertices[0].size()>0) {
+            float dur =  verticesNb/frameRate;
+            //void setParameters(float maxAmp, float attTime, float decTime, float susLvl, float relTime, float befAmp, float aftAmp)
+            adsr.setParameters(0.3, dur*0.01, dur*0.02, 0.2, dur*0.2, 0.0, 0.0);
+            //noteOn(dur);
+            play(dur/2);
+          }
           //play(2*(verticesNb - 2)/frameRate);
           // noteOn(10f);
           //alpha-=2;
@@ -85,10 +95,11 @@ class ULine3 extends ULine {
             strokeWeight(strokes.get(i));
           } else {
             strokeWeight(strokeW);
+            // strokeWeight(100*1/(1+PVector.dist(vertices[0].get(i), vertices[1].get(i))));
+            strokeWeight(0.2*PVector.dist(vertices[0].get(i), vertices[1].get(i)));
           }
 
           if (forward) {
-
             stroke(255*animationIndex);
           } else {
 
@@ -103,7 +114,7 @@ class ULine3 extends ULine {
           //} else {
           stroke(color(255-255*abs(cos(0.5*radians(i)))));
           //}
-         // stroke(255);
+          // stroke(255);
           noFill();
           //          for (int j = 0; j< vertices.length; j++) {
 
@@ -148,10 +159,11 @@ class ULine3 extends ULine {
             strokeWeight(strokes.get(i));
           } else {
             strokeWeight(strWeight*abs(sin(radians(i)+1)));
+            strokeWeight(0.2*PVector.dist(vertices[0].get(i), vertices[1].get(i)));
           }
 
 
-         // stroke(255);
+          // stroke(255);
 
 
           //if (modeLine) {

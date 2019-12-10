@@ -7,6 +7,7 @@
  ** exploring the relationship between drawing gesture and sound.
  **
  **/
+import codeanticode.tablet.*;
 
 import ddf.minim.*;
 import ddf.minim.analysis.*;
@@ -15,11 +16,11 @@ import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
-import codeanticode.tablet.*;
-
 Tablet tablet;
+float pressure = 0.0;
+
 // true for tablet, false for mouse
-boolean drawingMode = false;
+boolean drawingMode = true;
 UTimer ut;
 
 Minim minim;
@@ -39,15 +40,17 @@ int insMode = 0;
 boolean backMode = false;
 
 void setup() {
-  //fullScreen(P3D);
-  size(800, 800, P3D);
+  fullScreen(P3D);
+//size(1600, 1000, P3D);
+  //size(1800, 1000, P3D);
   background(255);
+  
+    tablet = new Tablet(this);
+
 
   // minim objects
   minim = new Minim(this);
   out = minim.getLineOut();
-
-  tablet = new Tablet(this);
 
   //smooth();
   perspective(PI/3.0, float(width)/float(height), 10, 10000);
@@ -55,8 +58,16 @@ void setup() {
 
 void draw() {
   /*if (millis() % 100 == 0) {
-    backMode = !backMode;
-  }*/
+   backMode = !backMode;
+   }*/
+
+  // get pressure value
+  //pressure = tablet.getPressure();
+  pressure = lerp(pressure, tablet.getPressure(), 0.1);
+  //pressure = tablet.getPressure();
+  //pressure = 1;
+  // println(pressure);
+
 
   if (!backMode) {
     background(0);
@@ -159,6 +170,8 @@ void mousePressed() {
     ut = new UTimer();
     //ut = shape;
   }
+
+  pressure = tablet.getPressure();
 
   if (insMode != 0) {
     shapes.add(shape);

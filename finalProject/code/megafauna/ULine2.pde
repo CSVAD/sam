@@ -34,22 +34,26 @@ class ULine2 extends ULine {
     beginShape();
 
     if (animateLine) {
+      println(animationIndex);
+      
       if (animationIndex == 0) {
         noteOff();
         rep++;
+        println("blop");
         if (vertices.size()>0) {
-          float dur =  2*verticesNb/frameRate;
-          //void setParameters(float maxAmp, float attTime, float decTime, float susLvl, float relTime, float befAmp, float aftAmp)
+          float dur =  20*verticesNb/frameRate;
+          println(dur);
+          //float maxAmp, float attTime, float decTime, float susLvl, float relTime, float befAmp, float aftAmp)
           adsr.setParameters(0.3, dur*0.01, dur*0.02, 0.2, dur*0.2, 0.0, 0.0);
-          //noteOn(dur);
           play(dur);
         }
-        //play(2.0);
       }
+
+      // animating phase
       for (int i = 0; i < animationIndex; i++) {
         float strokeW = strWeight*abs(sin(radians(i)+1));
         strokeWeight(strokeW);
-        stroke(color(255*abs(cos(0.5*radians(i)))));
+        stroke(color(255*abs(cos(2*radians(i)))));
 
         noFill();
         vertex(vertices.get(i).x, vertices.get(i).y, vertices.get(i).z);
@@ -59,7 +63,6 @@ class ULine2 extends ULine {
       if (animationIndex > verticesNb || animationIndex < 0) {
         if (animationIndex < 0) {
           if (vertices.size() > 1) {
-
             vertices.remove(vertices.size()-1);
             verticesNb --;
           } else {
@@ -71,9 +74,11 @@ class ULine2 extends ULine {
         animationIndex += increment;
       }
     } else {
+
+      // tracing phase
       for (int i = 0; i < vertices.size(); i++) {
         strokeWeight(strWeight*abs(sin(radians(i)+1)));
-        stroke(color(255*abs(cos(0.5*radians(i)))));
+        stroke(color(255*abs(cos(2*radians(i)))));
 
         noFill();
         vertex(vertices.get(i).x, vertices.get(i).y, vertices.get(i).z);

@@ -29,7 +29,7 @@ class ULine4 extends ULine {
     vertices.add(point);
     
     if (drawingMode) {
-      strokes.add(tablet.getPressure()*tablet.getPressure()*100);
+      strokes.add(pressure*pressure*100);
     }
     //println(tablet.getPressure()*100);
 

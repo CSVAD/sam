@@ -15,12 +15,12 @@ class Clap extends ULine {
   Clap(float freq) {
     sum = new Summer();
     noise = new Noise();
-    noise.setTint( Noise.Tint.RED );
-    lfo = new Oscil(10, 1., Waves.sawh( 15 ));
-    osc = new Oscil(freq, 0.5, Waves.randomNOddHarms( 4 ));
-    adsr = new ADSR(10.0f, 0.0001f, 0.1f, 0.01f, 1.0f);
-    bpf = new BandPass(1300, 50, out.sampleRate());
-    lpf = new LowPassFS(1300, out.sampleRate());
+    //noise.setTint( Noise.Tint.RED );
+    lfo = new Oscil(10, 1., Waves.SAW);
+    osc = new Oscil(freq, 0.5, Waves.SINE);
+    adsr = new ADSR(2.0f, 0.0001f, 0.1f, 0.01f, .5f);
+    bpf = new BandPass(300, 50, out.sampleRate());
+    lpf = new LowPassFS(400, out.sampleRate());
     delay = new Delay(0.1f, 1.0f, true, true);
     //line = new Line(.1f, 5.f, 0.f);
     //lfo.patch(osc.amplitude);
@@ -37,6 +37,8 @@ class Clap extends ULine {
     //line.activate( dur, 5.f, 0 );
     //osc.patch(adsr);
     sum.patch(bpf).patch( delay ).patch(lpf).patch(adsr);
+    //sum.patch( delay ).patch(lpf).patch(adsr);
+
     // turn on the ADSR
     adsr.noteOn();
     // patch to the output
@@ -56,5 +58,4 @@ class Clap extends ULine {
   void play(float dur) {
     out.playNote( 0.0, dur, this);
   }
-  
 }
