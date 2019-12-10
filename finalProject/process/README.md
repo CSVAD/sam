@@ -42,12 +42,12 @@ Now that I experimented with the minim library, it's time to select and polish t
 **Some issues that make the current tool clunky**
 - The moment to play the sound depends on the length of the line. So in animation mode, at the beginning of the gesture, the line is short, therefore, the sound plays only a fraction of second.
 - Delay when drawing in animation mode.
---> Both problems are solved by adding individual animation mode to each line, rather than a global animation mode. As soon as the performer is done tracing the line, the line animates and produces its associated sound.   
+--> Both problems are solved by adding individual animation mode to each line, rather than a global animation mode. As soon as the performer is done tracing the line, the line animates and produces its associated sound.
 
 - The aesthetic of the lines could be refined to account for the different instruments used in the composition.
 
 **Back to behaviors**
-- I implemented of few behaviors: life expectancy and spring&damping. I works well, I enjoy the _physicality_ of these lines.
+- I implemented of few behaviors: life expectancy and spring&damping. It works well, I enjoy the _physicality_ of these lines.
 
 ### Nov 27, 2019
 
@@ -83,7 +83,7 @@ Exploring minim on Processing.
     - more questions arise from this first test.
     - the output is very chaotic, which is not necessarily wrong. but the lack of pauses and silences makes the sonic quality of the output a bit boring. I would like to reach a sound that is closer to what electroacoustic musicians produce.
     - lack of direct sonic and visual output when in animation mode.
-    - maybe I should start by making the sound I like me minim first.
+    - maybe I should start by making the sound I like with minim first.
 
 **Designing metaphor:**
 - each line: an instrument with some characteristics depending of its physiognomy.

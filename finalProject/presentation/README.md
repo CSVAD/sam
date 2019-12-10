@@ -1,9 +1,9 @@
 # megafauna
 ## final presentation
 ### PRODUCT
-**Description:** first prototype to create a gestural drawing tool that enables sound composition and behavioral animation.
+**description:** first prototype to create a gestural drawing tool that enables sound composition and behavioral animation.
 
-**Design metaphor:** creating a context that needs to be perpetually maintained in order to persist visually and sonically in time.
+**design metaphor:** creating a context that needs to be perpetually maintained in order to persist visually and sonically in time.
 
 video performance [here](http://sambourgault.com/megafauna.html).
 
@@ -75,16 +75,20 @@ Aesthetic of lines
 - varying stroke weight
 - varying colors
 
+My set of line instruments is therefore a test of intrinsic relationships between gesture/sound/behavior/aesthetic.
+
 
 #### challenges
-- creating tight bind between lines and sound: what to map to what? does everything needs to be meaningful or can it be purely aesthetic?
+- creating tight connections between gestures, lines and sound: what to map to what? does everything needs to be meaningful or can it be simply aesthetic?
     - methodology to approach the problem: a sound to a line.
+    -
 - finding a coherent aesthetic.
     - removing inessential visual feature.
 
 
-#### learning
-**Observations**
+#### learning / observations
 
 - Visual composition guides my interaction with the tool. I see the lines cohabiting in this environments in symbiosis.
+- Direct manipulation versus line analysis.
+- The way I built the system is still not optimize for easy prototyping. The next iteration should be made more modular in order to link gestures to line behaviors, aesthetic and sounds quickly, maybe in a plug-and-play fashion.
 - I want control on my sound so it's hard to plan good variations.
