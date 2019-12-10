@@ -3,7 +3,7 @@
 ### PRODUCT
 **Description:** first prototype to create a gestural drawing tool that enables sound composition and behavioral animation.
 
-**Design metaphor:** creating a context that needs to be perpetually maintain in order to persist visually and sonically in time.
+**Design metaphor:** creating a context that needs to be perpetually maintained in order to persist visually and sonically in time.
 
 video performance [here](https://vimeo.com/378214074).
 
@@ -37,16 +37,13 @@ Aim: "bringing two things to bear on the problem space of audiovisual instrument
 
 
 ### PROCESS
-i.e. how you made it:
-Provide an overview of the process you took in completing your final project. This should include the following:
-
 #### components
 Back end: heavily based on object-oriented programming and polymorphism.
 
 Basic unit: the line.
 A sound and a behavior is associated with each line.
 
-Sound synthesis and samples.
+Sound units:
 - sampler
 - additive synthesis
 - fm synthesis
@@ -71,6 +68,13 @@ Basic Behaviors
 - stack (FILO)
 - disappearance through alpha
 - rotation around axis
+
+Aesthetic of lines
+- single lines
+- multilines
+- varying stroke weight
+- varying colors
+
 
 #### challenges
 - creating tight bind between lines and sound: what to map to what? does everything needs to be meaningful or can it be purely aesthetic?
