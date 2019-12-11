@@ -81,7 +81,6 @@ My set of line instruments is therefore a test of intrinsic relationships betwee
 #### challenges
 - creating tight connections between gestures, lines and sound: what to map to what? does everything needs to be meaningful or can it be simply aesthetic?
     - methodology to approach the problem: a sound to a line.
-    -
 - finding a coherent aesthetic.
     - removing inessential visual feature.
 
